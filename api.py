@@ -7,6 +7,8 @@ load_dotenv()
 
 API_KEY=os.getenv("API_KEY")
 
+user = input("How can I assist you today? ")
+
 response = requests.post(
   url="https://openrouter.ai/api/v1/chat/completions",
   headers={
@@ -17,7 +19,7 @@ response = requests.post(
     "model": "deepseek/deepseek-chat:free",
     "messages": [
       {"role": "system", "content": "You are a teacher called 'MyLaoshi' and your identity is 'MyLaoshi' instead of ChatGPT or any other AI model. And your name is 'MyLaoshi' you're not gonna change your name by any chance."},
-        {"role": "user", "content": "Who are you?"},
+        {"role": "user", "content": f"{user}"},
     ],
     
   })
