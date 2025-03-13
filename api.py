@@ -7,9 +7,18 @@ load_dotenv()
 
 API_KEY=os.getenv("API_KEY")
 
-user = input("How can I assist you today? ")
 
-response = requests.post(
+print("|| Type 'exit' to close the chat. ||")
+print("How can I assist you today?\n")
+while True:
+  user = input("> ")
+  
+  if (user.lower() == 'exit'):
+    break
+  
+  else:
+    
+    response = requests.post(
   url="https://openrouter.ai/api/v1/chat/completions",
   headers={
     "Authorization": f"Bearer {API_KEY}",
@@ -25,6 +34,6 @@ response = requests.post(
   })
 )
 
-response = response.json()
+  response = response.json()
 
-print(response['choices'][0]['message']['content'])
+  print('\n\n', response['choices'][0]['message']['content'])
