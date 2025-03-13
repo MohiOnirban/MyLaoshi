@@ -5,7 +5,7 @@ import os
 
 load_dotenv()
 
-API_KEY=os.getenv("API_KEY")
+API_KEY = os.getenv("API_KEY")
 
 
 print("|| Type 'exit' to close the chat. ||")
